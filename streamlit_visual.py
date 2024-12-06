@@ -6,8 +6,6 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import plotly.express as px
-from streamlit_option_menu import option_menu
-from numerize.numerize import numerize
 import time
 from streamlit_extras.metric_cards import style_metric_cards
 import plotly.graph_objs as go
