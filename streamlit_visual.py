@@ -79,8 +79,13 @@ st.markdown("""
 
 alt.themes.enable("dark")
 
-# load data
-df = query()
+# load data from database
+## df = query() 
+
+# load data from csv for streamlit cloud
+file_path = 'data/Clean_Dataset.csv'
+df = pd.read_csv(file_path)
+
 df["date"] = pd.to_datetime(df["date"]).dt.date
 unique_dates = df["date"].unique()  
 

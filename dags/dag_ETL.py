@@ -145,11 +145,19 @@ with DAG(dag_id='ETL_DATA',
         except Exception as e:
             print(f"Error push Data into table cleandata_flight: {e}")
             raise
+    
+    @task()
+    def convert_golddata_to_csv(df_gold):
+        data_dir = '/opt/airflow/data'
+        os.makedirs(data_dir, exist_ok=True)
+        df_gold.to_csv(f"{data_dir}/Clean_Dataset.csv", index=False)
+
 
 ## DAG Worflow- ETL Pipeline
     data_economic = get_data_as_df('economic_flight')
     data_business = get_data_as_df('business_flight')
     data_gold = Data_Transformation(data_economic, data_business)
     Extract_into_DB(data_gold)
+    convert_golddata_to_csv(data_gold)
     
     
