@@ -9,7 +9,7 @@ import plotly.express as px
 import time
 from streamlit_extras.metric_cards import style_metric_cards
 import plotly.graph_objs as go
-from query import query
+# from query import query ## Use this when you want query to db
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import LabelEncoder
 from joblib import load
