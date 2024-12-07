@@ -9,4 +9,3 @@ seaborn
 sqlalchemy
 streamlit_extras
 altair
-distutils
