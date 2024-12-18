@@ -131,6 +131,9 @@ with st.sidebar:
 st.header("ANALYTICAL PROCESSING, KPI & PREDICTIONS FLIGHT ✈️✈️✈️")
 
 def Home():
+    """
+    Display the home page with various analytical metrics and visualizations.
+    """
     with st.expander("VIEW EXCEL DATASET"):
         showData = st.multiselect('Filter: ', df_selected.columns.tolist(), default=df_selected.columns.tolist())
         st.dataframe(df_selected[showData], use_container_width=True)
@@ -261,7 +264,7 @@ with col[0]:
         font=dict(color="black"),
         legend=dict(x=1, y=1),
     )
-    st.plotly_chart(fig_pie, use_container_width=True)
+    st.x_chart(fig_pie, use_container_width=True)
 
     # chart boxplot (Price Distribution by Source City)
 fig_boxplot = px.box(
@@ -284,6 +287,9 @@ fig_boxplot.update_layout(
 st.plotly_chart(fig_boxplot, use_container_width=True)
 
 def make_prediction():
+    """
+    Make a prediction for the flight price based on user input.
+    """
     # Tiền xử lý dữ liệu
     input_data = {
         'airline': airline,
@@ -356,4 +362,3 @@ def make_prediction():
 # Chỉ khi người dùng nhấn nút "Predict Price", mới thực hiện dự đoán
 if predict_button:
     make_prediction()
-
